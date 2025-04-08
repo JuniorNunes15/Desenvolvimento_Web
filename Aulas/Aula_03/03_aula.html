@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução a CSS e Tabelas</title>
+    <link rel="icon" type="image/png" href="img.png" sizes="16x16">
+    <style>
+        div {
+            border: 3px solid black;
+            padding: 10px;
+            width: 350px;
+            text-align: center;
+            font-size: 30px;
+            margin: 20px;
+        }
+        a {
+            margin-top: 50px;
+        }
+        a:link{
+            text-decoration: none;
+            padding: 20px;
+            background-color: lightseagreen;
+            margin: 100px;
+        }
+        a:visited {
+            color: salmon;
+        }
+        a:hover {
+            background-color: lightsteelblue;
+            text-decoration: underline;
+        }
+        a:active {
+            background-color: lightcoral;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        Temos uma div agui.
+    </div>
+    <div>
+        Outra Div.
+    </div>
+
+    <button onclick="document.location='https://www.youtube.com/watch?v=OaFT8XQIW5s'">
+        Botão de link
+    </button>
+
+    <br/>
+    
+    <a href="https://www.youtube.com/watch?v=MXRpz3c7eIc" target="_blank">botão legal</a>
+    
+
+
+    <h1>Bookmarks</h1>
+    <h3 id="C1">Bookmarks #1</h3>
+    <p><a href="#C6">Lorem</a> ipsum, dolor sit amet consectetur adipisicing elit. Ullam, ex. Perspiciatis ab distinctio ad dicta minus est! In, maxime, distinctio repellat eum eaque, voluptate unde ratione repellendus ab consequuntur aliquid.</p>
+    <h3 id="C2">Bookmarks #2</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus.</p>
+    <h3 id="C3">Bookmarks #3</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore adipisci neque tempore, animi sapiente error corrupti perspiciatis minus cum? Impedit corporis ducimus quibusdam tenetur magnam veritatis ipsum necessitatibus eos quidem?</p>
+    <h3 id="C4">Bookmarks #4</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus.</p>
+    <h3 id="C5">Bookmarks #5</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus.</p>
+    <h3 id="C6">Bookmarks #6</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus.</p>
+   
+    <h1>Tabelas</h1>
+    <table border>
+        <tr>
+            <th>Nome</th>
+            <th>Curso</th>
+            <th>IRA</th>
+        </tr>
+        <tr>
+            <td>Junior</td>
+            <td>CC</td>
+            <td>9.0</td>
+        </tr>
+        <tr>
+            <td>Maria</td>
+            <td>CC</td>
+            <td>8.0</td>
+        </tr>
+        <tr>
+            <td>João</td>
+            <td>CC</td>
+            <td>7.0</td>
+        </tr>
+        <tr>
+            <td colspan="2">Média</td>
+            <td>6.0</td>
+        </tr>
+    </table>
+</body>
+</html>
