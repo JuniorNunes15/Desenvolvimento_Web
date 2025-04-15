@@ -1,0 +1,43 @@
+table, th, td {
+    background-color: lightcoral;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+th {
+    background-color: #FF6347;
+    color: aquamarine;
+}
+
+p, pre {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 20px;
+    background-color: aquamarine;
+}
+
+h1, h2, h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px;
+}
+
+h1 {
+    color: darkblue;
+}
+
+h2 {
+    color: darkgreen;
+}
+
+h3 {
+    color: darkred;
+}
+
+body {
+    background-color: #FE3867;
+}
+
+div {
+    text-align: center;
+}
