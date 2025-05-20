@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page Title</title>
+  <title>Kingdom Hearts Fan</title>
   <link id="theme-style" rel="stylesheet" href="style.css">
 </head>
 
@@ -15,7 +15,6 @@
 </script>
 
 <body>
-
   <aside style="background:aquamarine;padding:5px">
     <h4 style="text-align:center">Resize the browser window to see the responsive effect.</h4>
   </aside>
@@ -27,15 +26,15 @@
   </header>
 
   <!-- Navigation Bar -->
-<nav>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <div class="nav-links" id="nav-links">
-    <a href="https://www.kingdomhearts.com/home/us/">Site Global</a>
-    <a href="https://www.jp.square-enix.com/kingdom/">Site JP</a>
-    <a href="https://twitter.com/KINGDOMHEARTS">Twitter Global</a>
-    <a href="https://x.com/_kingdomhearts">Twitter JP</a>
-    </div>
-</nav>
+  <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="nav-links">
+        <a href="https://www.kingdomhearts.com/home/us/">Site Global</a>
+        <a href="https://www.jp.square-enix.com/kingdom/">Site JP</a>
+        <a href="https://twitter.com/KINGDOMHEARTS">Twitter Global</a>
+        <a href="https://x.com/_kingdomhearts">Twitter JP</a>
+      </div>
+  </nav>
 
   <!-- Content Area -->
   <div class="row">
@@ -91,10 +90,16 @@
 
   <!-- Footer -->
   <footer>
-  <p> 2025 Fã-site de Kingdom Hearts. Todos os direitos das imagens pertencem à Square Enix e Disney.</p>
-</footer>
+    <p>Que seu coração seja sua chave guia.</p>  
+    <p> 2025 Fã-site de Kingdom Hearts. Todos os direitos das imagens pertencem à Square Enix e Disney.</p>
+  </footer>
 
-<button id="toggle-theme" style="position:fixed;bottom:20px;right:20px;z-index:999;padding:10px;border-radius:8px;cursor:pointer;background-color: #1a237e;
+  <button id="toggle-theme" style="position:fixed;bottom:20px;
+    right:20px;z-index:999;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+    background-color: #1a237e;
     color: #ffd700;
     border: none;
     padding: 10px 16px;
@@ -103,8 +108,8 @@
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 0 8px #ffd700;">
-    👑 Modo Escuro
-</button>
+      👑 Modo Escuro
+  </button>
 
   <!-- Script para alternar temas -->
   <script>
@@ -117,7 +122,7 @@
       themeLink.setAttribute("href", darkMode ? "style_dark.css" : "style.css");
       toggleBtn.textContent = darkMode ? "☀️ Modo Claro" : "👑 Modo Escuro";
     });
-</script>
+  </script>
 
 </body>
 </html>

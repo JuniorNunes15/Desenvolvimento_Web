@@ -69,42 +69,41 @@ footer {
 }
 
 @media screen and (max-width: 700px) {
-    .row,
-    nav {
+    .row, nav {
         flex-direction: column;
     }
 }
 
 .menu-toggle {
-  display: none;
-  background-color: #333;
-  color: white;
-  border: none;
-  font-size: 24px;
-  padding: 14px 20px;
-  cursor: pointer;
+    display: none;
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 14px 20px;
+    cursor: pointer;
 }
 
 /* Esconde os links no celular */
 @media screen and (max-width: 700px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #333;
-  }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+    }
 
-  .nav-links a {
-    text-align: left;
-    padding: 14px;
-    border-top: 1px solid #444;
-  }
+    .nav-links a {
+        text-align: left;
+        padding: 14px;
+        border-top: 1px solid #444;
+    }
 
-  .menu-toggle {
-    display: block;
-  }
+    .menu-toggle {
+        display: block;
+    }
 
-  .nav-links.show {
-    display: flex;
-  }
+    .nav-links.show {
+        display: flex;
+    }
 }
