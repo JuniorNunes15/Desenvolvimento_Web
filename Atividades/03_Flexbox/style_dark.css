@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    margin: 0;
+    background-color: #0a0a1a; /* azul escuro quase preto */
+    color: #f0f0f0;
+}
+
+header {
+    padding: 60px;
+    text-align: center;
+    background: linear-gradient(to right, #1c1c3c, #1a237e); /* gradiente azul real */
+    color: #ffd700; /* dourado */
+}
+
+nav {
+    display: flex;
+    background-color: #12122b; /* azul escuro */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #f0f0f0;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+nav a:hover {
+    background-color: #333366;
+    color: #ffd700; /* dourado em hover */
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+aside {
+    flex: 30%;
+    background-color: #1b1b2f; /* roxo escuro azulado */
+    padding: 20px;
+}
+
+main {
+    flex: 70%;
+    background-color: #111120;
+    padding: 20px;
+}
+
+.fakeimg {
+    background-color: #333355;
+    width: 100%;
+    padding: 20px;
+    color: #ccc;
+    text-align: center;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #1a1a2e;
+    color: #b0b0ff; /* tom prateado azulado */
+}
+
+@media screen and (max-width: 700px) {
+    .row,
+    nav {
+        flex-direction: column;
+    }
+}
+
+.menu-toggle {
+  display: none;
+  background-color: #333;
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 14px 20px;
+  cursor: pointer;
+}
+
+/* Esconde os links no celular */
+@media screen and (max-width: 700px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+  }
+
+  .nav-links a {
+    text-align: left;
+    padding: 14px;
+    border-top: 1px solid #444;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
