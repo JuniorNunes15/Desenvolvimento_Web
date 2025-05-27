@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questao 04</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    .notification-card {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 250px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        padding: 15px;
+        z-index: 1;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #333;
+    }
+
+    .card-content h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .card-content p {
+        margin: 0;
+        font-size: 14px;
+        color: #333;
+    }
+</style>
+
+<script>
+    function fecharCard() {
+        document.getElementById("card").style.display = "none";
+    }
+</script>
+
+<body>
+
+    <div>  
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione hic magnam, assumenda quos voluptatem distinctio corrupti repellat, quo consectetur, fugit itaque nobis! Odio provident inventore ab voluptatem?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptas iusto ratione</p>
+    </div>
+
+    <div class="notification-card" id="card">
+        <div class="card-header">
+            <button class="close-btn" onclick="fecharCard()">X</button>
+        </div>
+        <div class="card-content">
+            <h3>Novidade!</h3>
+            <p>Confira nossos novos produtos.</p>
+        </div>
+    </div>
+    
+</body>
+</html>

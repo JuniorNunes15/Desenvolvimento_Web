@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questao 03</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+    }
+
+    img {
+        width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    let pokemon = 1;
+
+    function alterar(delta) {
+        const Id = pokemon + delta;
+        if (Id < 1 || Id > 100) {
+            return;
+        }
+
+    pokemon = Id;
+    const novaURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon}.svg`;
+    document.getElementById("pokemonImage").src = novaURL;
+    }
+</script>
+
+<body>
+
+    <img id="pokemonImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="Pokémon">
+  
+    <div>
+        <button onclick="alterar(-1)">Voltar -1</button>
+        <button onclick="alterar(1)">Adiantar +1</button>
+    </div>
+
+</body>
+</html>

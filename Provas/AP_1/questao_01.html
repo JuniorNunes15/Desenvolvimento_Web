@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questao 01</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial;
+        margin: 0;
+        background-color: #0a0a1a;
+        color: #f0f0f0;
+    }
+
+    header {
+        padding: 60px;
+        text-align: center;
+        background: linear-gradient(to right, #1c1c3c, #1a237e);
+        color: #ffd700;
+    }
+
+    nav {
+        display: flex;
+        background-color: #12122b;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav a {
+        color: #f0f0f0;
+        padding: 14px 20px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    nav a:hover {
+        background-color: #333366;
+        color: #ffd700;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    aside {
+        flex: 30%;
+        background-color: #1b1b2f;
+        padding: 20px;
+    }
+
+    main {
+        flex: 70%;
+        background-color: #111120;
+        padding: 20px;
+    }
+
+    footer {
+        padding: 20px;
+        text-align: center;
+        background: #2b3a52;
+        color: #b0b0ff;
+    }
+
+    @media screen and (max-width: 700px) {
+        .row, nav {
+            flex-direction: column;
+        }
+    }
+
+    .menu-toggle {
+        display: none;
+        background-color: #333;
+        color: white;
+        border: none;
+        font-size: 24px;
+        padding: 14px 20px;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 400px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #333;
+        }
+
+        .nav-links a {
+            text-align: left;
+            padding: 14px;
+            border-top: 1px solid #444;
+        }
+
+        .menu-toggle {
+            display: block;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+    }
+
+    a {
+        color: #ffd700;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+
+  <header>
+    <h1>Kingdom Hearts</h1>
+    <p>Com um <b>flexivel</b> layout, Para a prova.</p>
+  </header>
+
+  <nav>
+    <div class="nav-links" id="nav-links">
+        <a href="https://www.kingdomhearts.com/home/us/">Site Global</a>
+        <a href="https://www.jp.square-enix.com/kingdom/">Site JP</a>
+        <a href="https://twitter.com/KINGDOMHEARTS">Twitter Global</a>
+        <a href="https://x.com/_kingdomhearts">Twitter JP</a>
+      </div>
+  </nav>
+
+  <div class="row">
+    <aside>
+      <h2>Sobre Kingdom Hearts</h2>
+      <h5>Imagem do jogo:</h5>
+      <img src="https://cdn1.epicgames.com/0712176b5e3e49bfa8866c0ee1359f2d/offer/EGS_KINGDOMHEARTSIIIReMindDLC_SquareEnix_S1-2560x1440-5044e506e523e5ff52628d1060699062.jpg" alt="Imagem do jogo" style="width:100%">
+      <p>Kingdom Hearts é uma série de jogos de RPG desenvolvidos e publicados pela Square Enix. É resultado da colaboração entre Square e Disney Interactive Studios e está sob direção de Tetsuya Nomura, um antigo designer de personagens da Square. </p>
+      <h3>Mais Texto</h3>
+      <p>Atualmente a franquia conta com 3 jogos principais e uma série de Spinsoffs. Os jogos principais sendo Kingdom Hearts 1, 2 e 3, com
+        Spinsoffs como o Chain of Memories, 358/2 Days, Birth by Sleep, Re:coded, Dream Drop Distance, Back Cover(que é um filme) Union X,
+        Dark Road e Melody of Memories, onde todos os jogos possuem uma importancia na historia.</p>
+      <img src="https://cdn1.epicgames.com/4158b699dd70447a981fee752d970a3e/offer/EGS_KINGDOMHEARTSHD1525ReMIX_SquareEnix_S5-1920x1080-d4bd9d38aaee5d23b23ef0b04567541f.jpg" alt="Imagem do jogo" style="width:100%">
+      <img src="https://img.opencritic.com/game/3465/o/UjqoSPBa.jpg" alt="Imagem do jogo" style="width:100%">
+      <img src="https://cdn1.epicgames.com/0712176b5e3e49bfa8866c0ee1359f2d/offer/EGS_KINGDOMHEARTSIIIReMindDLC_SquareEnix_S1-2560x1440-5044e506e523e5ff52628d1060699062.jpg" alt="Imagem do jogo" style="width:100%">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLIRvX-QckpDa58IBR1EOBNl4MFr1rhuiHn6pZiv5BC-mHdWtL6llSiIsCcDalxyU6duER7CP4UbvGy_5KB71pKxOByjnDIInR4sgPcVACk0fgoeS3u1zJhLOE4KnE3c9W3a8PiJvlz00/w1200-h630-p-k-no-nu/D1BwjTZWsAEGg55.png" alt="Imagem do jogo" style="width:100%">
+      <img src="https://cdn6.aptoide.com/imgs/d/7/6/d76d7ed46bbe938f9f573f0267492a03_fgraphic.jpg" alt="Imagem do jogo" style="width:100%">
+      <img src="https://gh.cdn.sewest.net/assets/ident/news/7fa5e271/KH_MoM_Demo_Title-1neu7m06f.jpg?quality=65" alt="Imagem do jogo" style="width:100%">
+    </aside>
+    
+    <main>
+      <section>
+        <h2>O mais recente cancelamento de jogo de Kingdom Hearts deixou parte da comunidade triste e feliz!</h2>
+        <h5>Oque aconteceu dia no dia 14 de Maio de 2024</h5>
+        <img src="https://i.ytimg.com/vi/JqTPFx6yTiM/maxresdefault.jpg" alt="Imagem do jogo" style="width:100%">
+        <p>Kingdom Hearts Missing Link iria vir a ser a nova entrada na série de Kingdom Hearts para explicar a "História que eventualmente foi
+            esquecida", mas infelizmente o jogo mobile que deveria ser lançado em 2025 foi oficialmente cancelado, deixando muitos fãs delizes
+            e outros tristes. Muitos ficaram felizes por conta que iria ser mais um Gacha, oque muita gente não queria, mas também muita gente
+            também estava muito ansioso para ver a historia que iria sair do jogo, pois além de continuar os eventos do Union X(que tinha sido o
+            outro Gacha da franquia, a qual muita gente não gosta) e iria linkar com o novo jogo da serie principal que vai sair, o Kingdom Hearts 4.
+        </p>
+        <p>Recentemente foi vazado muitos dados do jogo para o publico, oque mostrou que o jogo tinha muita historia para contar e isso é oque faz
+            com que muitos pensem que será lançado um jogo de verdade para console contando essa história, que definitivamente não pode ser
+            esquecida.
+        </p>
+      </section>
+      <br>
+      <section>
+        <h2>KINGDOM HEARTS 4 VIVE</h2>
+        <h5>Após 3 anos sem noticias, temos imagens, 14 Maio 2025</h5>
+        <img src="https://pbs.twimg.com/media/Gq855SwakAACDUl?format=jpg&name=large" alt="Imagem do jogo" style="width:100%">
+        <p>No mesmo dia que soltaram a bomba do cancelamento do Missing Link, a Square Enix postou imagems de Kingdom Hearts 4, provavelmente 
+            para compensar o cancelamento do jogo mobile. As imagens mostraram que o jogo vai ter uma seção jogavel com o Mickey na Scala ad Caelum.
+        </p>
+        <p>As novas imagens de Kingdom Hearts 4 também mostraram alguns dos inimigos especificos desse mundo, talvez sejam uma versão mais
+            realistas dos Heartles mais padrões, já que um deles lembra um pouco os Shadows e Neo Shadows. Nas imagens Strelyzia aparece mais
+            uma vez, agora ainda mais bonita que no primeiro trailer. Para encerrar, no meio da imagem tem um telefone, muitos teorizam que esse
+            telefone é uma referencia ao <a href="https://en.wikipedia.org/wiki/Wind_phone" target="_blank">Telefone dos ventos</a> (Wind Telephone), que é um telefone desconectado que tem no Japão onde as pessoas
+            podem dizer um ultimo adeus aos entes queridos que já partiram.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <a href="" target="_blank">umEmailAqui@ufc.br</a>
+    <p>Que seu coração seja sua chave guia.</p>  
+    <p> 2025 Fã-site de Kingdom Hearts. Todos os direitos das imagens pertencem à Square Enix e Disney.</p>
+  </footer>
+
+</body>
+</html>
