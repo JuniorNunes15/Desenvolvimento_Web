@@ -32,15 +32,19 @@
 <script>
     let pokemon = 1;
 
-    function alterar(delta) {
-        const Id = pokemon + delta;
+    function alterar(valor) {
+        const Id = pokemon + valor;
         if (Id < 1 || Id > 100) {
             return;
         }
 
-    pokemon = Id;
-    const novaURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon}.svg`;
-    document.getElementById("pokemonImage").src = novaURL;
+        pokemon = Id;
+        const URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon}.svg`;
+        document.getElementById("pokemonImage").src = URL;
+    }
+
+    function getValor() {
+        return pokemon;
     }
 </script>
 
