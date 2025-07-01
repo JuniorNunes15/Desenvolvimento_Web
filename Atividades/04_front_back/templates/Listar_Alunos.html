@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alunos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Lista de Alunos</h1>
+
+    <div>
+        <input type="text" id="nome" placeholder="Nome">
+        <input type="text" id="curso" placeholder="Curso">
+        <input type="number" id="ira" placeholder="IRA" step="0.1">
+        <button onclick="adicionarAluno()">Adicionar Aluno</button>
+    </div>
+
+    <table id="tabelaAlunos">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Curso</th>
+                <th>IRA</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Linhas geradas dinamicamente -->
+        </tbody>
+    </table>
+
+    <script>
+        const url = 'http://localhost:3000/api/alunos';
+
+        //Carregar Alunos
+        function carregarAlunos() {
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.querySelector('#tabelaAlunos tbody');
+                    tbody.innerHTML = '';
+
+                    data.forEach(aluno => {
+                        const linha = document.createElement('tr');
+
+                        linha.innerHTML = `
+                            <td>${aluno.nome}</td>
+                            <td>${aluno.curso}</td>
+                            <td>${aluno.ira}</td>
+                            <td>
+                                <button onclick="deletarAluno(${aluno.id})">Excluir</button>
+                            </td>
+                        `;
+
+                        tbody.appendChild(linha);
+                    });
+                });
+        }
+
+        //Adicionar
+        function adicionarAluno() {
+            const nome = document.getElementById('nome').value.trim();
+            const curso = document.getElementById('curso').value.trim();
+            const ira = document.getElementById('ira').value.trim();
+
+            if (!nome || !curso || !ira) {
+                //alert('Preencha todos os campos');
+                return;
+            }
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome, curso, ira })
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('Erro ao adicionar aluno');
+                return res.json();
+            })
+            .then(() => {
+                document.getElementById('nome').value = '';
+                document.getElementById('curso').value = '';
+                document.getElementById('ira').value = '';
+                carregarAlunos();
+            })
+            .catch(err => alert(err.message));
+        }
+
+        //Deletar
+        function deletarAluno(id) {
+            fetch(`${url}/${id}`, { method: 'DELETE' })
+                .then(() => carregarAlunos());
+        }
+
+        carregarAlunos();
+    </script>
+</body>
+</html>
