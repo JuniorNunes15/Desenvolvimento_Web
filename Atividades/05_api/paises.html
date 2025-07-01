@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>COVID - Países</title>
+    <link id="theme-style" rel="stylesheet" href="paises.css">
+</head>
+
+<body>
+  <h1>COVID no Mundo - Dados por país</h1>
+  <table id="tabela">
+    <thead>
+      <tr>
+        <th>País</th>
+        <th>Número de Confirmados</th>
+        <th>Número de Mortes</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    fetch('https://covid19-brazil-api.vercel.app/api/report/v1/countries')
+      .then(res => res.json())
+      .then(data => {
+        const paises = data.data;
+        const tbody = document.querySelector('tbody');
+
+        paises.forEach(pais => {
+          const { country, confirmed, deaths, recovered } = pais;
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${country}</td>
+            <td>${confirmed}</td>
+            <td>${deaths}</td>
+          `;
+          if (country.toLowerCase() === 'brazil') {
+            tr.classList.add('brasil');
+          }
+          tbody.appendChild(tr);
+        });
+      });
+  </script>
+</body>
+</html>

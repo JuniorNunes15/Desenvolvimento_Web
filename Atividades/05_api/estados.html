@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>COVID no Brasil</title>
+    <link id="theme-style" rel="stylesheet" href="estados.css">
+</head>
+
+<body>
+  <h1>COVID no Brasil - Dados por estado</h1>
+  <table id="tabela">
+    <thead>
+      <tr>
+        <th>Nome do Estado</th>
+        <th>Abreviação</th>
+        <th>Número de Casos</th>
+        <th>Número de Suspeitos</th>
+        <th>Número de Falecimentos</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr class="info-final">
+        <td colspan="2">Médias</td>
+        <td id="media-casos"></td>
+        <td id="media-suspeitos"></td>
+        <td id="media-obitos"></td>
+      </tr>
+      <tr class="info-final">
+        <td colspan="5" id="melhor-estado"></td>
+      </tr>
+      <tr class="info-final">
+        <td colspan="5" id="pior-estado"></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script>
+    fetch('https://covid19-brazil-api.vercel.app/api/report/v1')
+      .then(res => res.json())
+      .then(data => {
+        const estados = data.data;
+        const tbody = document.querySelector('tbody');
+        let somaCasos = 0, somaSuspeitos = 0, somaObitos = 0;
+        let maiorRelacao = 0, menorRelacao = Infinity;
+        let estadoMaiorRelacao = '', estadoMenorRelacao = '';
+
+        estados.forEach(estado => {
+          const { state, uf, cases, suspects, deaths } = estado;
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${state}</td>
+            <td>${uf}</td>
+            <td>${cases}</td>
+            <td>${suspects}</td>
+            <td>${deaths}</td>
+          `;
+          tbody.appendChild(tr);
+
+          somaCasos += cases;
+          somaSuspeitos += suspects;
+          somaObitos += deaths;
+
+          const relacao = deaths > 0 ? cases / deaths : 0;
+          if (relacao > maiorRelacao) {
+            maiorRelacao = relacao;
+            estadoMaiorRelacao = `${state} (${relacao.toFixed(2)})`;
+          }
+          if (relacao < menorRelacao) {
+            menorRelacao = relacao;
+            estadoMenorRelacao = `${state} (${relacao.toFixed(2)})`;
+          }
+        });
+
+        const total = estados.length;
+        const mediaCasos = somaCasos / total;
+        const mediaSuspeitos = somaSuspeitos / total;
+        const mediaObitos = somaObitos / total;
+
+        document.getElementById('media-casos').textContent = Math.round(mediaCasos);
+        document.getElementById('media-suspeitos').textContent = Math.round(mediaSuspeitos);
+        document.getElementById('media-obitos').textContent = Math.round(mediaObitos);
+        document.getElementById('melhor-estado').textContent = `Maior relação Casos/Falecimentos: ${estadoMaiorRelacao}`;
+        document.getElementById('pior-estado').textContent = `Menor relação Casos/Falecimentos: ${estadoMenorRelacao}`;
+
+        Array.from(tbody.rows).forEach(row => {
+          const obitos = parseInt(row.cells[4].textContent);
+          if (obitos > mediaObitos) {
+            row.classList.add('acima-media');
+          }
+        });
+      });
+  </script>
+</body>
+</html>
