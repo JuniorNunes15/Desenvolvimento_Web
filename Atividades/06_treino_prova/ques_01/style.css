@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #e91e63;
+    color: white;
+}
+
+.acima-media {
+    background-color: #ffebee;
+}
+
+.mais-caro {
+    background-color: #c8e6c9;
+    font-weight: bold;
+}
+
+.mais-barato {
+    background-color: #ffe0b2;
+    font-weight: bold;
+}
+
+.erro {
+    color: red;
+    font-size: 18px;
+}
