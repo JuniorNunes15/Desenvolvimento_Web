@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Adotar Animal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Formulário de Adoção</h1>
+  <a href="visualizar.html"><button>Voltar para Visualização</button></a>
+
+  <div id="infoAnimal">
+    <!-- Informações do animal serão inseridas aqui -->
+  </div>
+
+  <form id="formAdocao" style="display: none;">
+    <input type="text" id="adotante" placeholder="Seu nome" required />
+    <input type="text" id="contato" placeholder="Contato (e-mail ou telefone)" required />
+    <button type="submit">Confirmar Adoção</button>
+  </form>
+
+  <script>
+    const url = 'http://localhost:3000/api/animais';
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    if (!id) {
+      alert('Animal inválido');
+      window.location.href = 'visualizar.html';
+    }
+
+    fetch(url)
+      .then(res => res.json())
+      .then(animais => {
+        const animal = animais.find(a => a.id == id);
+        if (!animal) {
+          alert('Animal não encontrado');
+          window.location.href = 'visualizar.html';
+        }
+
+        if (animal.adotado) {
+          alert('Este animal já foi adotado!');
+          window.location.href = 'visualizar.html';
+        }
+
+        const infoDiv = document.getElementById('infoAnimal');
+        infoDiv.innerHTML = `
+          <h2><strong>Nome:</strong> ${animal.nome}</h2>
+          <h2><strong>Espécie:</strong> ${animal.especie}</h2>
+          <h2><strong>Idade:</strong> ${animal.idade} ano(s)</h2>
+        `;
+
+        document.getElementById('formAdocao').style.display = 'flex';
+
+        document.getElementById('formAdocao').addEventListener('submit', function (e) {
+          e.preventDefault();
+          const adotante = document.getElementById('adotante').value.trim();
+          const contato = document.getElementById('contato').value.trim();
+          if (!adotante || !contato) return;
+
+          fetch(`http://localhost:3000/api/adotar/${id}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ adotante, contato })
+          })
+            .then(res => res.json())
+            .then(data => {
+              alert(data.mensagem || 'Animal adotado!');
+              window.location.href = 'visualizar.html';
+            })
+            .catch(err => alert('Erro na adoção'));
+        });
+      });
+  </script>
+</body>
+</html>

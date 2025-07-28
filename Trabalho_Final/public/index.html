@@ -1,12 +1,98 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adoção Responsável</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadastro de Animais</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Cadastro de Animais</h1>
+
+  <div>
+    <input type="text" id="nome" placeholder="Nome do Animal" />
+    <input type="text" id="especie" placeholder="Espécie" />
+    <input type="number" id="idade" placeholder="Idade" />
+    <button onclick="adicionarAnimal()">Cadastrar Animal</button>
+    
+    <a href="visualizar.html"><button>Visualizar Animais</button></a>
+  </div>
+
+  <table id="tabelaAnimais">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Espécie</th>
+        <th>Idade</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const url = 'http://localhost:3000/api/animais';
+
+    function carregarAnimais() {
+      fetch(url)
+        .then(res => res.json())
+        .then(animais => {
+          const tbody = document.querySelector('#tabelaAnimais tbody');
+          tbody.innerHTML = '';
+
+          animais.forEach(animal => {
+            const linha = document.createElement('tr');
+            const status = animal.adotado ? '<span class="adotado">ADOTADO</span>' : 'Disponível';
+            const botaoExcluir = animal.adotado
+              ? ''
+              : `<button onclick="deletarAnimal(${animal.id})">Excluir</button>`;
+
+            linha.innerHTML = `
+              <td>${animal.nome}</td>
+              <td>${animal.especie}</td>
+              <td>${animal.idade}</td>
+              <td>${status}</td>
+              <td>${botaoExcluir}</td>
+            `;
+            tbody.appendChild(linha);
+          });
+        });
+    }
+
+    function adicionarAnimal() {
+      const nome = document.getElementById('nome').value.trim();
+      const especie = document.getElementById('especie').value.trim();
+      const idade = document.getElementById('idade').value.trim();
+
+      if (!nome || !especie || !idade) return;
+
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, especie, idade })
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('Erro ao adicionar animal');
+          return res.json();
+        })
+        .then(() => {
+          document.getElementById('nome').value = '';
+          document.getElementById('especie').value = '';
+          document.getElementById('idade').value = '';
+          carregarAnimais();
+        })
+        .catch(err => alert(err.message));
+    }
+
+    function deletarAnimal(id) {
+      fetch(`${url}/${id}`, { method: 'DELETE' })
+        .then(res => {
+          if (!res.ok) return res.json().then(data => alert(data.erro));
+          carregarAnimais();
+        });
+    }
+
+    carregarAnimais();
+  </script>
+</body>
 </html>

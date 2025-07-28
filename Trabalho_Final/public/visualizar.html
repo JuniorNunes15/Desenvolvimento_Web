@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Animais Cadastrados</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Visualização de Animais</h1>
+  <a href="index.html"><button>Voltar ao Cadastro</button></a>
+
+  <table id="tabelaAnimais">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Espécie</th>
+        <th>Idade</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const url = 'http://localhost:3000/api/animais';
+
+    fetch(url)
+      .then(res => res.json())
+      .then(animais => {
+        const tbody = document.querySelector('#tabelaAnimais tbody');
+        tbody.innerHTML = '';
+
+        animais.forEach(animal => {
+          const linha = document.createElement('tr');
+
+          const status = animal.adotado
+            ? '<span class="adotado">ADOTADO</span>'
+            : `<a href="adotar.html?id=${animal.id}"><button>Adotar</button></a>`;
+
+          linha.innerHTML = `
+            <td>${animal.nome}</td>
+            <td>${animal.especie}</td>
+            <td>${animal.idade}</td>
+            <td>${status}</td>
+          `;
+          tbody.appendChild(linha);
+        });
+      });
+  </script>
+</body>
+</html>
