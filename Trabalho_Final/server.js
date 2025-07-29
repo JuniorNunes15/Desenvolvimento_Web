@@ -17,7 +17,6 @@ let proximoId = 4;
 
 // Listar
 app.get('/api/animais', (req, res) => {
-    // Animais adotados sempre no final
     const ordenado = [...animais].sort((a, b) => a.adotado - b.adotado);
     res.json(ordenado);
 });
